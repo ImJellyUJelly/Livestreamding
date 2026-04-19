@@ -9,23 +9,29 @@ export function StreamEnding() {
     <ActiveBackground>
       <div className="flex-1 flex flex-row items-center px-24 md:px-32 relative w-full h-full">
         
-        {/* Logo Placement */}
-        <div className="absolute top-12 left-12 z-50">
-           <img src={logoSrc} alt="Inside Out Archery Media" className="w-64 h-auto object-contain opacity-90 drop-shadow-2xl" />
-        </div>
-
         {/* Left Side Content */}
-        <div className="flex-[1.2] relative z-10 flex flex-col items-start w-full pt-20">
+        <div className="flex-[1.2] relative z-10 flex flex-col items-start justify-center h-full w-full">
+          
+          {/* Logo Integrated into Flow */}
+          <motion.div 
+            className="mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+          >
+             <img src={logoSrc} alt="Inside Out Archery Media" className="w-64 h-auto object-contain drop-shadow-2xl" />
+          </motion.div>
+
           <motion.div 
             className="text-[#94fc00] text-3xl xl:text-4xl font-bold tracking-widest uppercase mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
           >
             Stream Ended
           </motion.div>
           
           <motion.h1 
-            className="text-[8rem] xl:text-[10rem] font-black text-[#f2f2f9] tracking-tighter uppercase text-left mb-20 leading-[0.9]"
+            className="text-[8rem] xl:text-[10rem] font-black text-[#f2f2f9] tracking-tighter uppercase text-left mb-16 leading-[0.9]"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -36,7 +42,7 @@ export function StreamEnding() {
           
           {/* Social Links Row */}
           <motion.div 
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
@@ -48,12 +54,12 @@ export function StreamEnding() {
             ].map((social, idx) => (
               <div 
                 key={idx} 
-                className="flex items-center gap-6 bg-[#161460] border-4 border-[#e0ff05] px-10 py-5 w-fit shadow-[10px_10px_0px_0px_rgba(148,252,0,0.5)]"
+                className="flex items-center gap-6 bg-[#161460] border-4 border-[#e0ff05] px-8 py-4 w-fit shadow-[10px_10px_0px_0px_rgba(148,252,0,0.5)]"
                 style={{ transform: 'skewX(-15deg)' }}
               >
                 <div style={{ transform: 'skewX(15deg)' }} className="flex items-center gap-6">
-                  <social.icon size={40} className="text-[#94fc00]" />
-                  <span className="text-[#f2f2f9] text-2xl xl:text-3xl font-bold tracking-wider">{social.handle}</span>
+                  <social.icon size={36} className="text-[#94fc00]" />
+                  <span className="text-[#f2f2f9] text-xl xl:text-2xl font-bold tracking-wider">{social.handle}</span>
                 </div>
               </div>
             ))}

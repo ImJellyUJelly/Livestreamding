@@ -6,6 +6,8 @@ import { StreamEnding } from "./components/StreamEnding";
 import { MediaLayout } from "./components/MediaLayout";
 import { JustChatting } from "./components/JustChatting";
 
+import { CleanMediaLayout } from "./components/CleanMediaLayout";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -30,5 +32,9 @@ export const router = createBrowserRouter([
   {
     path: "/chat",
     Component: JustChatting,
+  },
+  {
+    path: "/clean-media",
+    Component: CleanMediaLayout,
   },
 ]);

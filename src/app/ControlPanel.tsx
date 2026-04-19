@@ -6,13 +6,16 @@ import { StreamEnding } from './components/StreamEnding';
 import { MediaLayout } from './components/MediaLayout';
 import { JustChatting } from './components/JustChatting';
 
-type ScreenType = 'starting' | 'brb' | 'ending' | 'media' | 'chat';
+import { CleanMediaLayout } from './components/CleanMediaLayout';
+
+type ScreenType = 'starting' | 'brb' | 'ending' | 'media' | 'chat' | 'clean_media';
 
 const SCREENS = [
   { id: 'starting', label: 'Starting Soon', component: StartingSoon, path: '/starting' },
   { id: 'brb', label: 'Be Right Back', component: BeRightBack, path: '/brb' },
   { id: 'ending', label: 'Thank You', component: StreamEnding, path: '/ending' },
   { id: 'media', label: 'Media Layout', component: MediaLayout, path: '/media' },
+  { id: 'clean_media', label: 'Partner Media', component: CleanMediaLayout, path: '/clean-media' },
   { id: 'chat', label: 'Talk Layout', component: JustChatting, path: '/chat' },
 ] as const;
 
