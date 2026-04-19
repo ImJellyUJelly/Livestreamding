@@ -5,10 +5,11 @@ import { BeRightBack } from "./components/BeRightBack";
 import { StreamEnding } from "./components/StreamEnding";
 import { MediaLayout } from "./components/MediaLayout";
 import { JustChatting } from "./components/JustChatting";
+import { createHashRouter } from "react-router-dom";
 
 import { CleanMediaLayout } from "./components/CleanMediaLayout";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     Component: ControlPanel,
