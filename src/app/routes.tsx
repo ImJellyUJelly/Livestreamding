@@ -1,4 +1,3 @@
-import { createBrowserRouter } from "react-router";
 import { ControlPanel } from "./ControlPanel";
 import { StartingSoon } from "./components/StartingSoon";
 import { BeRightBack } from "./components/BeRightBack";
