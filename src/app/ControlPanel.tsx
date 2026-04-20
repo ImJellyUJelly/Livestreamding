@@ -24,6 +24,7 @@ export function ControlPanel() {
 
   const ActiveComponent = SCREENS.find(s => s.id === activeScreen)?.component || StartingSoon;
   const activePath = SCREENS.find(s => s.id === activeScreen)?.path;
+  const baseUrl = window.location.href.split('#')[0];
 
   return (
     <div className="min-h-screen bg-black flex flex-col font-sans text-white">
@@ -31,7 +32,7 @@ export function ControlPanel() {
       <div className="h-20 bg-zinc-950 border-b border-zinc-800 flex items-center justify-between px-8">
         <div>
           <h1 className="text-xl font-bold tracking-widest text-[#94fc00] uppercase">Stream Overlays</h1>
-          <p className="text-sm text-zinc-400">1920x1080 Active Abstract Style</p>
+          <p className="text-sm text-zinc-400">2704x1520 Modular Hash Routes</p>
         </div>
         
         <div className="flex gap-4">
@@ -59,13 +60,64 @@ export function ControlPanel() {
       </div>
       
       {/* OBS Usage Instructions */}
-      <div className="p-4 bg-zinc-950 flex flex-wrap items-center justify-center gap-3 text-sm text-zinc-400 border-t border-zinc-800">
-        <div className="bg-[#3b3bff] text-white px-2 py-0.5 rounded font-bold uppercase text-xs">OBS Tip</div>
-        <span>Add a <strong>Browser Source</strong> in OBS. Set URL to:</span>
-        <code className="bg-zinc-800 px-3 py-1 rounded text-[#94fc00] select-all font-mono">
-          {`http://localhost:5173${activePath}`}
-        </code>
-        <span>and set Width to <strong>1920</strong>, Height to <strong>1080</strong>.</span>
+      <div className="p-4 bg-zinc-950 flex flex-col items-center justify-center gap-3 text-sm text-zinc-400 border-t border-zinc-800">
+        <div className="flex items-center gap-3">
+          <div className="bg-[#3b3bff] text-white px-2 py-0.5 rounded font-bold uppercase text-xs">OBS Tip</div>
+          <span>Add a <strong>Browser Source</strong> in OBS. Set Width to <strong>2704</strong>, Height to <strong>1520</strong>.</span>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 w-full max-w-4xl">
+          <div className="bg-zinc-900 p-3 rounded border border-zinc-800 flex flex-col">
+            <span className="text-zinc-500 text-xs uppercase mb-1 font-bold">Full Scene URL</span>
+            <code className="text-[#94fc00] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#{activePath}</code>
+          </div>
+          
+          <div className="bg-zinc-900 p-3 rounded border border-zinc-800 flex flex-col">
+            <span className="text-zinc-500 text-xs uppercase mb-1 font-bold">Isolated Layer URLs for this Scene</span>
+            <div className="flex flex-col gap-1 text-xs">
+              <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/layer/background</code>
+              {activeScreen === 'starting' && (
+                <>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/starting/content</code>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/starting/ribbon</code>
+                </>
+              )}
+              {activeScreen === 'brb' && (
+                <>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/brb/content</code>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/brb/logo</code>
+                </>
+              )}
+              {activeScreen === 'ending' && (
+                <>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/ending/content</code>
+                </>
+              )}
+              {activeScreen === 'clean_media' && (
+                <>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/layer/background-clean</code>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/partner-media/videoframe</code>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/partner-media/banner</code>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/partner-media/logo</code>
+                </>
+              )}
+              {activeScreen === 'media' && (
+                <>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/layer/background-clean</code>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/media/videoframe</code>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/media/header</code>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/media/chat</code>
+                </>
+              )}
+              {activeScreen === 'chat' && (
+                <>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/layer/background-clean</code>
+                  <code className="text-[#e0ff05] select-all font-mono whitespace-nowrap overflow-x-auto overflow-y-hidden">{baseUrl}#/chat/content</code>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
