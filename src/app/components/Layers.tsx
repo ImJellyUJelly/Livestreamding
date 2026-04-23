@@ -306,9 +306,9 @@ export const Layers = {
             <img src={logoSrc} alt="Inside Out Archery Media" className="h-20 w-auto object-contain drop-shadow-2xl" />
           </div>
           <div className="relative w-full aspect-video border-[10px] border-[#3b3bff] shadow-[20px_20px_0px_0px_#94fc00] bg-transparent pointer-events-none z-20">
-             <div className="absolute -bottom-6 -left-6 bg-[#161460] px-8 py-4 border-4 border-[#e0ff05] shadow-[-8px_8px_0px_0px_rgba(224,255,5,0.4)] pointer-events-auto z-30">
-                <span className="text-[#f2f2f9] text-2xl font-black tracking-widest uppercase">                </span>
-             </div>
+             {/* <div className="absolute -bottom-6 -left-6 bg-[#161460] px-8 py-4 border-4 border-[#e0ff05] shadow-[-8px_8px_0px_0px_rgba(224,255,5,0.4)] pointer-events-auto z-30">
+                <span className="text-[#f2f2f9] text-2xl font-black tracking-widest uppercase"></span>
+             </div> */}
              <div className="absolute -top-4 -right-4 flex items-center gap-2 bg-[#161460] px-4 py-2 border-2 border-[#e0ff05]">
                 <motion.div className="w-3 h-3 rounded-full bg-[#e0ff05]" animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
                 <span className="text-[#e0ff05] font-bold tracking-wider">LIVE</span>
