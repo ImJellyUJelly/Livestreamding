@@ -32,7 +32,7 @@ export function MediaLayout() {
               <div style={{ transform: 'skewX(5deg)' }} className="flex flex-col justify-center h-full text-[#161460]">
                  <h3 className="text-2xl font-black uppercase mb-2">Current Topic</h3>
                  <div className="text-4xl font-bold leading-tight">
-                    Discussing the Main Event
+                    
                  </div>
               </div>
            </div>
